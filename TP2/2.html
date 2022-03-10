@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 1</title>
+  </head>
+  <body>
+    <ul>
+      <li onclick="goUp(this)">Paris</li>
+      <li onclick="goUp(this)">Lisbone</li>
+      <li onclick="goUp(this)">Londres</li>
+      <li onclick="goUp(this)">Rome</li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+    function goUp(el){
+      el.parentElement.prepend(el)
+      // document.getElementsByTagName("ul")[0].prepend(el);
+    }
+  </script>
+</html>

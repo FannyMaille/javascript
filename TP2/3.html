@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1</title>
+</head>
+
+<body>
+  <img id="img1" onclick="WidthGrow(this)"
+    src="https://media.istockphoto.com/photos/colorful-background-of-pastel-powder-explosionrainbow-color-dust-on-picture-id1180542165?k=20&m=1180542165&s=612x612&w=0&h=43hlhk8qdGYP4V-u3AAxD3kPDRIzHjMNWpr-VdBQ2Js="
+    alt="img1" width="300px" />
+  <img id="img2" onclick="WidthGrow(this)"
+    src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="img2" width="300px" />
+</body>
+<script type="text/javascript">
+  let size = 0;
+  let nameid;
+  function WidthGrow(el) {
+    let nameid = el.id;
+    size = el.width + (el.width * 20) / 100;
+    el.style.width = size + "px";
+    if(nameid == "img1"){
+      document.getElementById('img2').style.width = (document.getElementById('img2').width * 20) / 100 + "px";
+    }
+    else{
+      document.getElementById('img1').style.width = (document.getElementById('img1').width * 20) / 100 + "px";
+    }
+  }
+</script>
+
+</html>
