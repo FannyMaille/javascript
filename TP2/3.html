@@ -23,7 +23,7 @@
     const AllImg = Array.from(document.getElementsByTagName('img'));
     AllImg.forEach(element => {
       if (element != el) {
-        if(small>=0.2){
+        if(small>0.2){
           small = small - 0.2;
         }
         element.style.transform = "scale(" + small + ")";
