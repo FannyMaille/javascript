@@ -15,18 +15,18 @@
     src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="img2" width="300px" />
 </body>
 <script type="text/javascript">
-  let big = 1;
-  let small = 1;
   function WidthGrow(el) {
-    big = big + 0.2;
-    el.style.transform = "scale(" + big + ")";
+    el.style.width = el.width * 1.2 + "px";
     const AllImg = Array.from(document.getElementsByTagName('img'));
     AllImg.forEach(element => {
       if (element != el) {
-        if(small>0.2){
-          small = small - 0.2;
+        let smallsize = element.width * 0.8 ;
+        if(smallsize > 0){
+          element.style.width = smallsize + "px";
         }
-        element.style.transform = "scale(" + small + ")";
+        else{
+          element.style.width = element.width + "px";
+        }
       }
     });
   }
