@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exercice 1</title>
+  <title>Exercice 3</title>
 </head>
 
 <body>
@@ -15,18 +15,20 @@
     src="https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg" alt="img2" width="300px" />
 </body>
 <script type="text/javascript">
-  let size = 0;
-  let nameid;
+  let big = 1;
+  let small = 1;
   function WidthGrow(el) {
-    let nameid = el.id;
-    size = el.width + (el.width * 20) / 100;
-    el.style.width = size + "px";
-    if(nameid == "img1"){
-      document.getElementById('img2').style.width = (document.getElementById('img2').width * 20) / 100 + "px";
-    }
-    else{
-      document.getElementById('img1').style.width = (document.getElementById('img1').width * 20) / 100 + "px";
-    }
+    big = big + 0.2;
+    el.style.transform = "scale(" + big + ")";
+    const AllImg = Array.from(document.getElementsByTagName('img'));
+    AllImg.forEach(element => {
+      if (element != el) {
+        if(small>=0.2){
+          small = small - 0.2;
+        }
+        element.style.transform = "scale(" + small + ")";
+      }
+    });
   }
 </script>
 
