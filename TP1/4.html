@@ -12,5 +12,11 @@
     const MyElementDiv = document.createElement("div");
     MyElementDiv.style.backgroundColor = "purple";
     MyElementDiv.style.width = "100%";
+    MyElementDiv.style.height = "300px";
+    MyElementH1.innerHTML = "Titre";
+    MyElementH1.style.color = "white";
+    MyElementH1.style.textTransform = "uppercase";
+    MyElementDiv.appendChild(MyElementH1);
+    document.getElementsByTagName("body")[0].appendChild(MyElementDiv);
   </script>
 </html>
