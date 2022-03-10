@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice 4</title>
-  </head>
-  <body>
-    <div onkeydown="Move(event)"></div>
-  </body>
-  <script type="text/javascript">
-    document.getElementsByTagName("div")[0].style.width = "50px";
-    document.getElementsByTagName("div")[0].style.height = "50px";
-    document.getElementsByTagName("div")[0].style.backgroundColor = "pink";
-    function Move(e){
-      window.addEventListener()
-      console.log(e);
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 4</title>
+</head>
+
+<body>
+  <div></div>
+</body>
+<script type="text/javascript">
+  document.getElementsByTagName("div")[0].style.width = "50px";
+  document.getElementsByTagName("div")[0].style.height = "50px";
+  document.getElementsByTagName("div")[0].style.backgroundColor = "pink";
+  document.getElementsByTagName("div")[0].style.position = "absolute";
+  document.getElementsByTagName("div")[0].style.top = "0px";
+  document.getElementsByTagName("div")[0].style.left = "0px";
+  window.addEventListener("keydown", Move);
+  function Move(e) {
+    let positiontop = document.getElementsByTagName("div")[0].style.top;
+    positiontop = parseInt(positiontop.replace("px",""));
+    let positionleft = document.getElementsByTagName("div")[0].style.left;
+    positionleft = parseInt(positionleft.replace("px",""));
+    switch (e.key) {
+      case "ArrowUp":
+        document.getElementsByTagName("div")[0].style.top = (positiontop - 50) +"px";
+        break;
+      case "ArrowDown":
+        document.getElementsByTagName("div")[0].style.top = (positiontop + 50) +"px";
+        break;
+      case "ArrowRight":
+        document.getElementsByTagName("div")[0].style.left = (positionleft + 50) +"px";
+        break;
+      case "ArrowLeft":
+        document.getElementsByTagName("div")[0].style.left = (positionleft - 50) +"px";
+        break;
     }
-  </script>
+  }
+
+</script>
+
 </html>
