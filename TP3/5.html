@@ -14,10 +14,9 @@
   const MyElementp = document.getElementsByTagName("p")[0];
   MyElementp.innerHTML = "width : " + window.innerWidth + "px - height : " + window.innerHeight + "px";
 
-  window.addEventListener("resize", dynamicsize);
-  function dynamicsize() {
+  window.addEventListener("resize", () => {
     MyElementp.innerHTML = "width : " + window.innerWidth + "px - height : " + window.innerHeight + "px";
-  }
+  });
 </script>
 
 </html>
