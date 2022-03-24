@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 6</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+
+  function findLongestWord(str) {
+    let tab = str.split(" ");
+    let bigword;
+    let biglenght = 0;
+    for(let i = 0; i < tab.length; i++){
+      if(tab[i].length > biglenght){
+        bigword = tab[i];
+        biglenght = tab[i].length;
+      }
+    }
+    return bigword;
+  }
+
+  var test = findLongestWord("Le chemin le plus court n'est pas toujours le meilleur !")
+  console.log(test);
+
+</script>
+
+</html>
