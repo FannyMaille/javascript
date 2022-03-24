@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+  // split() --> sépare chaque caractère d’une chaîne et la convertira en tableau
+  // reverse() --> prend ce tableau et inversera les éléments qu’il contient
+  // join() --> rejoind les caractères qui ont été inversés par la fonction reverse()
+  function revert(str) {
+    return str.split("").reverse().join("");
+  }
+
+  var test = revert("Hello I'm Robert !")
+  console.log(test);
+
+</script>
+
+</html>

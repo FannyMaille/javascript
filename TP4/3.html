@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+
+  function ucFirst(word) {
+    let firstletter = word.slice(0, 1).toUpperCase();
+    return word.slice(0, 1).toUpperCase() + word.substr(1);
+  }
+
+  function capitalize(str) {
+    let tab = str.split(" ");
+    for(let i = 0; i < tab.length; i++){
+      tab[i] = ucFirst(tab[i]);
+    }
+    return tab.join(" ");
+  }
+
+  var test = capitalize("hello i'm robert !")
+  console.log(test);
+
+</script>
+
+</html>
