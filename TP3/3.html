@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+  let max = Math.floor(Math.random() * (15 - 5 + 1) + 5);
+
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  for (let i = 0; i < max; i++) {
+    const MyElementDiv = document.createElement("div");
+    const MyElementBr = document.createElement("br");
+    MyElementDiv.style.backgroundColor = getRandomColor();
+    MyElementDiv.style.width = "100%";
+    MyElementDiv.style.height = "50px";
+    document.getElementsByTagName("body")[0].appendChild(MyElementDiv);
+    document.getElementsByTagName("body")[0].appendChild(MyElementBr);
+  }
+  
+  let allDiv = Array.from(document.querySelectorAll("div"));
+  allDiv.forEach(element => {
+    element.addEventListener("click", () => changecolor(element));
+  });
+
+  function changecolor(el) {
+    let actualcolor = el.style.backgroundColor;
+    if(actualcolor != "red"){
+      el.style.backgroundColor = "red";
+    }
+    else{
+      el.style.backgroundColor = getRandomColor();
+    }
+  }
+
+</script>
+
+</html>

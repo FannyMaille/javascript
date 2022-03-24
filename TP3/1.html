@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1</title>
+</head>
+
+<body>
+  <div style="width: 50px; height: 50px; background-color: black;"></div>
+  <br>
+  <div style="width: 50px; height: 50px; background-color: black;"></div>
+  <br>
+  <div style="width: 50px; height: 50px; background-color: black;"></div>
+</body>
+<script type="text/javascript">
+
+  let allDiv = Array.from(document.querySelectorAll("div"));
+  allDiv.forEach(element => {
+    element.addEventListener("click", () => changecolor(element));
+  });
+
+  function changecolor(el) {
+    let actualcolor = el.style.backgroundColor;
+    if (actualcolor == "black") {
+      el.style.backgroundColor = "red";
+    }
+    else {
+      el.style.backgroundColor = "black";
+    }
+  }
+</script>
+
+</html>
