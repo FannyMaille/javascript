@@ -39,10 +39,11 @@
   function changecolor(el) {
     let actualcolor = el.style.backgroundColor;
     if(actualcolor != "red"){
+      el.setAttribute('old-color', actualcolor);
       el.style.backgroundColor = "red";
     }
     else{
-      el.style.backgroundColor = getRandomColor();
+      el.style.backgroundColor = el.getAttribute('old-color');
     }
   }
 
