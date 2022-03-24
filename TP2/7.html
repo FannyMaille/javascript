@@ -2096,6 +2096,8 @@ fbq('track', 'PageView');
   body.addEventListener("click", (e) => deleteelement(e));
   function deleteelement(e) {
     e.target.remove();
+    e.stopPropagation();
+    e.preventDefault();
   }
 
 </script>
