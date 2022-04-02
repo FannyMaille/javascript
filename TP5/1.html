@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+
+  const GetHashTags = (str) => "#"+str.split(" ").sort((a, b) => b.length - a.length).slice(0, 3).join(" #").split(" ");
+
+  console.log(GetHashTags("How the Avocado Became the Fruit of the Global Trade"));
+  console.log(GetHashTags("Why you Will Probably Pay More for Your Chrismas Tree This Year"));
+  console.log(GetHashTags("Hey Parents, Suprise, Fruit Juice Is Not Fruits"));
+  console.log(GetHashTags("Visualising Science"));
+
+</script>
+
+</html>
