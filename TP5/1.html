@@ -11,11 +11,11 @@
 </body>
 <script type="text/javascript">
 
-  const GetHashTags = (str) => "#"+str.split(" ").sort((a, b) => b.length - a.length).slice(0, 3).join(" #").split(" ");
+  const GetHashTags = (str) => "#"+str.replaceAll(',','').split(" ").sort((a, b) => b.length - a.length).slice(0, 3).join(" #").split(" ");
 
   console.log(GetHashTags("How the Avocado Became the Fruit of the Global Trade"));
-  console.log(GetHashTags("Why you Will Probably Pay More for Your Chrismas Tree This Year"));
-  console.log(GetHashTags("Hey Parents, Suprise, Fruit Juice Is Not Fruits"));
+  console.log(GetHashTags("Why you Will Probably Pay More for Your Chritsmas Tree This Year"));
+  console.log(GetHashTags("Hey Parents, Surprise, Fruit Juice Is Not Fruits"));
   console.log(GetHashTags("Visualising Science"));
 
 </script>
