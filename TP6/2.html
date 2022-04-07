@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 2 (Bonus)</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+  // Prop access:
+  // Écrire une fonction prop_access(object, path) qui prend en paramètre un chemin et un objet et retourne la valeur associée.
+  // Si l’attribut n'existe pas alors retourné le chemin + “not exist” ( ex: “post.comments.type not exist”
+  // Si le chemin est vide Renvoyez l’objet complet.
+
+  function prop_access(object, path) {
+    const chemin = path.split(".");
+    let string = "object";
+    for(let i = 0; i < chemin.length; i++){
+      string += [chemin[i]];
+    }
+    return object['animal']['type']['name'];
+    // for(const key in objet){
+    //   return key + " : " + objet[key];
+    // }
+  }
+
+  console.log(prop_access({
+    "animal": {
+      "type": {
+        "name": "dog"
+      }
+    }
+  },
+    "animal.type.name")); // dog
+  console.log(prop_access({
+    "animal":
+    {
+      "type": {
+        "name": "dog"
+      }
+    }
+  }, "animal.type"
+  )); // { name: "dog" }
+
+  console.log(prop_access({
+    "animals": [
+      {
+        "type": {
+          "name": "dog"
+        }
+      },
+      {
+        "type": {
+          "name": "cat"
+        }
+      }
+    ]
+  }, "animals.1.type"
+  )); // { name: "cat" }
+
+</script>
+
+</html>

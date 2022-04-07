@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+
+  async function TestDate(date) {
+    try {
+      await myPromise(date).then(res => console.log(res));
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  const myPromise = (date) => {
+    return new Promise((resolve, failure) => {
+      if (date) {
+        resolve(date);
+      } else {
+        failure('The first number is to short');
+      }
+    });
+  }
+
+  TestDate("05/04/1999");
+</script>
+
+</html>

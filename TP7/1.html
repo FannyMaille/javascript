@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+
+  async function TestMyString(str) {
+    try {
+      await myPromise(str).then(res => console.log(res));
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  const myPromise = (str) => {
+    return new Promise((resolve, failure) => {
+      if (str.length <= 20) {
+        resolve(true);
+      } else {
+        failure('The string is more than 20 caracters');
+      }
+    });
+  }
+
+  TestMyString("Hellooooovergoengeriejngveringrzieounozrenoooo");
+</script>
+
+</html>
