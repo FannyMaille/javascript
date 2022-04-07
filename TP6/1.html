@@ -11,7 +11,7 @@
 </body>
 <script type="text/javascript">
 
-  function generatesurname (array){
+  function generatesurname(array) {
     if (array['surname'].length >= 3) {
       const consonnes = array['surname'].toUpperCase().match(/[bcdfghjklmnpqrstvwxz]/gi).slice(0, 3);
       if (consonnes.length < 3) {
@@ -27,10 +27,10 @@
     }
     else {
       if (array['surname'].length == 1) {
-        return array['surname'].toUpperCase()+'X','X';
+        return array['surname'].toUpperCase() + 'X', 'X';
       }
       if (array['surname'].length == 2) {
-        return array['surname'].toUpperCase()+'X';
+        return array['surname'].toUpperCase() + 'X';
       }
     }
   }
@@ -66,15 +66,70 @@
     }
   }
 
-  function fiscalCode(array) {
+  function generatedate(array) {
+    let dob = array['dob'].slice(-2);
+    const month = array['dob'].split("/")[1];
+    switch (month) {
+      case '1':
+        dob += "A";
+        break;
+      case '2':
+        dob += "B";
+        break;
+      case '3':
+        dob += "C";
+        break;
+      case '4':
+        dob += "D";
+        break;
+      case '5':
+        dob += "E";
+        break;
+      case '6':
+        dob += "H";
+        break;
+      case '7':
+        dob += "L";
+        break;
+      case '8':
+        dob += "M";
+        break;
+      case '9':
+        dob += "P";
+        break;
+      case '10':
+        dob += "R";
+        break;
+      case '11':
+        dob += "S";
+        break;
+      case '12':
+        dob += "T";
+        break;
+    }
+    let day = array['dob'].split("/")[0];
+    switch (array['gender']) {
+      case 'M':
+        if (day < 9) {
+          day = "0" + day;
+        }
+        break;
+      case 'F':
+        day = 40 + parseInt(day);
+        break;
+    }
+    return dob += day.toString();
+  }
 
+  function fiscalCode(array) {
+   return generatesurname(array)+ generatename(array) + generatedate(array);
   }
 
   console.log(fiscalCode({
     name: 'Bob',
     surname: 'yu',
     gender: 'F',
-    dob: '05/04/1999'
+    dob: '5/4/1999'
   }));
 
 </script>
