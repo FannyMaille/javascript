@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 1</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+
+  function generatesurname (array){
+    if (array['surname'].length >= 3) {
+      const consonnes = array['surname'].toUpperCase().match(/[bcdfghjklmnpqrstvwxz]/gi).slice(0, 3);
+      if (consonnes.length < 3) {
+        const voyelles = array['surname'].toUpperCase().match(/[aeiouy]/gi).slice(0, 2);
+        if (consonnes.length == 1) {
+          consonnes.push(voyelles[0], voyelles[1]);
+        }
+        if (consonnes.length == 2) {
+          consonnes.push(voyelles[0]);
+        }
+      }
+      return consonnes.join("");
+    }
+    else {
+      if (array['surname'].length == 1) {
+        return array['surname'].toUpperCase()+'X','X';
+      }
+      if (array['surname'].length == 2) {
+        return array['surname'].toUpperCase()+'X';
+      }
+    }
+  }
+
+  function generatename(array) {
+    if (array['name'].length >= 3) {
+      const consonnes = array['name'].toUpperCase().match(/[bcdfghjklmnpqrstvwxz]/gi);
+      if (consonnes.length == 3) {
+        return consonnes.join("");
+      }
+      if (consonnes.length > 3) {
+        const bigname = consonnes[0] + consonnes[2] + consonnes[3];
+        return bigname;
+      }
+      else {
+        const voyelles = array['name'].toUpperCase().match(/[aeiouy]/gi).slice(0, 2);
+        if (consonnes.length == 1) {
+          consonnes.push(voyelles[0], voyelles[1]);
+        }
+        if (consonnes.length == 2) {
+          consonnes.push(voyelles[0]);
+        }
+        return consonnes.join("");
+      }
+    }
+    else {
+      if (array['name'].length == 1) {
+        return array['name'].toUpperCase() + 'X', 'X';
+      }
+      if (array['name'].length == 2) {
+        return array['name'].toUpperCase() + 'X';
+      }
+    }
+  }
+
+  function fiscalCode(array) {
+
+  }
+
+  console.log(fiscalCode({
+    name: 'Bob',
+    surname: 'yu',
+    gender: 'F',
+    dob: '05/04/1999'
+  }));
+
+</script>
+
+</html>
