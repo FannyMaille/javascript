@@ -11,25 +11,22 @@
 </body>
 <script type="text/javascript">
 
-  async function TestMyString(str) {
-    try {
-      await myPromise(str).then(res => console.log(res));
-    } catch (e) {
-      console.error(e);
+  function successCallback(Result) {
+    console.log(Result);
+  }
+  function failureCallback(Erreur) {
+    console.error(Erreur);
+  }
+
+  function TestMyString(str, successCallback, failureCallback) {
+    if (str.length <= 20) {
+      successCallback(true);
+    } else {
+      failureCallback('The string is more than 20 caracters');
     }
   }
 
-  const myPromise = (str) => {
-    return new Promise((resolve, failure) => {
-      if (str.length <= 20) {
-        resolve(true);
-      } else {
-        failure('The string is more than 20 caracters');
-      }
-    });
-  }
-
-  TestMyString("Hellooooovergoengeriejngveringrzieounozrenoooo");
+  TestMyString("Hellooooovergoengeriejngveringrzieounozrenoooo", successCallback, failureCallback);
 </script>
 
 </html>

@@ -11,28 +11,25 @@
 </body>
 <script type="text/javascript">
 
-  async function TestDate(date) {
-    try {
-      await myPromise(date).then(res => console.log(res));
-    } catch (e) {
-      console.error(e);
+  function successCallback(Result) {
+    console.log(Result);
+  }
+  function failureCallback(Erreur) {
+    console.error(Erreur);
+  }
+
+  function TestDate(date, successCallback, failureCallback) {
+    const birthyear = date.split("/")[2];
+    let today = new Date();
+    const actualyear = today.getFullYear();
+    if (actualyear - birthyear >= 18) {
+      successCallback(true);
+    } else {
+      failureCallback('You are to young');
     }
   }
 
-  const myPromise = (date) => {
-    return new Promise((resolve, failure) => {
-      const birthyear = date.split("/")[2];
-      let today = new Date();
-      const actualyear = today.getFullYear();
-      if (actualyear - birthyear >= 18) {
-        resolve(true);
-      } else {
-        failure('You are to young');
-      }
-    });
-  }
-
-  TestDate("05/04/2006");
+  TestDate("05/04/2006", successCallback, failureCallback);
 </script>
 
 </html>
