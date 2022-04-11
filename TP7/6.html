@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 6</title>
+</head>
+
+<body>
+  <ul id="entities"></ul>
+  <script>
+
+    (async () => {
+      function createNode(element) {
+        return document.createElement(element);
+      }
+
+      function append(parent, el) {
+        return parent.appendChild(el);
+      }
+
+      async function dataFetching(url) {
+        const raw = await fetch(url);
+        const { results } = await raw.json();
+        return results
+      }
+      const ul = document.getElementById('entities');
+      try {
+        const results = await dataFetching("https://swapi.dev/api/planets")
+        const p = await dataFetching("https://swapi.dev/api/people")
+        const s = await dataFetching("https://swapi.dev/api/starships")
+        console.log({ results, p });
+        [...results, ...p, ...s].map(({ name }) => {
+          console.log(name);
+          let li = createNode('li');
+          li.innerHTML = name;
+          append(ul, li);
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+
+  </script>
+</body>
+
+
+</html>
