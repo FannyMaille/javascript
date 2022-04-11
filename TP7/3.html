@@ -21,15 +21,18 @@
 
   const myPromise = (date) => {
     return new Promise((resolve, failure) => {
-      if (date) {
-        resolve(date);
+      const birthyear = date.split("/")[2];
+      let today = new Date();
+      const actualyear = today.getFullYear();
+      if (actualyear - birthyear >= 18) {
+        resolve(true);
       } else {
-        failure('The first number is to short');
+        failure('You are to young');
       }
     });
   }
 
-  TestDate("05/04/1999");
+  TestDate("05/04/2006");
 </script>
 
 </html>
