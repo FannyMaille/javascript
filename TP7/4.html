@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 4</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+
+  async function TestMyString(str) {
+    return new Promise((successCallback, failureCallback) => {
+      if (str.length <= 20) {
+        successCallback(true);
+      } else {
+        failureCallback('The string is more than 20 caracters');
+      }
+    });
+  }
+
+  async function TestInts(int1, int2) {
+    return new Promise((successCallback, failureCallback) => {
+      if (int1 > int2) {
+        successCallback(int1 - int2);
+      } else {
+        failureCallback('The first number is to short');
+      }
+    });
+  }
+
+  async function TestDate(date) {
+    return new Promise((successCallback, failureCallback) => {
+      const birthyear = date.split("/")[2];
+      let today = new Date();
+      const actualyear = today.getFullYear();
+      if (actualyear - birthyear >= 18) {
+        successCallback(true);
+      } else {
+        failureCallback('You are to young');
+      }
+    });
+  }
+
+  function successCallback(Result) {
+    console.log(Result);
+  }
+  function failureCallback(Erreur) {
+    console.error(Erreur);
+  }
+
+  const myPromise1 = TestMyString("Hellooooovergoengeriejngveringrzieounozrenoooo");
+  const myPromise2 = TestInts(4, 5);
+  const myPromise3 = TestDate("05/04/2006");
+  myPromise1.then(successCallback, failureCallback);
+  myPromise2.then(successCallback, failureCallback);
+  myPromise3.then(successCallback, failureCallback);
+
+
+
+
+</script>
+
+</html>
