@@ -17,14 +17,14 @@
 
   function prop_access(object, path) {
     const chemin = path.split(".");
-    let string = "object";
-    for(let i = 0; i < chemin.length; i++){
-      string += [chemin[i]];
+    let tempObj = { ...object };
+    for (let i = 0; i < chemin.length; i++) {
+      if (!tempObj[chemin[i]]) {
+        return "not exist";
+      }
+      tempObj = tempObj[chemin[i]];
     }
-    return object['animal']['type']['name'];
-    // for(const key in objet){
-    //   return key + " : " + objet[key];
-    // }
+    return tempObj;
   }
 
   console.log(prop_access({
@@ -60,6 +60,22 @@
     ]
   }, "animals.1.type"
   )); // { name: "cat" }
+
+  console.log(prop_access({
+    "animals": [
+      {
+        "type": {
+          "name": "dog"
+        }
+      },
+      {
+        "type": {
+          "name": "cat"
+        }
+      }
+    ]
+  }, "animals.6.type"
+  )); // not exist
 
 </script>
 
